@@ -15,3 +15,5 @@ let temp=null//  Null is a datype as well as standalone value : It respresents e
 // Symbole : unique
 
 console.log(typeof temp);
+
+
