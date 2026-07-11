@@ -25,11 +25,11 @@ console.log(a2);
 console.log(Array.isArray("Lokesh")); // checks if "Lokesh" is array which is false
 console.log(Array.from("Lokesh")); // converts into array => [ 'L', 'o', 'k', 'e', 's', 'h' ]
 
-console.log(Array.from({name : "Lokesh"})); // passes object
+console.log(Array.from({name : "Lokesh"})); // passes object => output is an empty array []
 
 let a = 100
 let b = 200
 let c = 300
 
 
-console.log(Array.of(a, b, c)); // retuyrn new array from set of elements
+console.log(Array.of(a, b, c)); // returns new array from set of elements
