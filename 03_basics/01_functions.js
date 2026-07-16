@@ -67,7 +67,6 @@ callanobject({                 //passing opbject inside a function call
 })
 
 const myarray = [10,20,30,40]   //decalred an array
-
 function secondarray(getarray){
     return getarray[2]                   //passes an array in function
 }
