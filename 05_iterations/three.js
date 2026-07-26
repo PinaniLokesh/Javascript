@@ -45,7 +45,7 @@ const myObj = {
 
 console.log(myObj);
 
-// for (const Game of myObj) { // object is not iterable means object values cannot be stored in 'Game'
+// for (const Game of myObj) { // object is not iterable using for of loop means object values cannot be stored in 'Game'
     // console.log(Game); 
     
 // }
