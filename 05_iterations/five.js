@@ -6,7 +6,7 @@ const coding = ["JS", "Ruby", "Java", "Python", "CPP"]
 // normal syntax for function :- function function_Name(Parameter) {}
 //syntax for callback function :- function (Parameter) {}
 
-// coding.forEach( function (lang) {        //callbakc function with parameter lang
+// coding.forEach( function (lang) {        //callback function with parameter lang
 //     console.log(lang);
     
 // })           
