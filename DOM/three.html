@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodes</title>
+</head>
+<body style="background-color: black; color: white;">
+    
+</body>
+<script>
+    const div = document.createElement('div') //created an HTML div element 
+    console.log(div);
+
+    div.className = 'Class' //Adds a class to div element
+    // div.id = 'id' // Adds an id to div element
+
+    div.id = Math.round(Math.random() * 100 + 1) // assigns a random number multiplied by 10 to id in div element
+    
+    div.setAttribute("title", "Title")  // Set attribute title = Title
+    div.style.backgroundColor = "green" //Styling the div element
+    div.style.padding = "10px"
+    const Text = document.createTextNode("Hello")  // creates a text for Div element
+    div.appendChild(Text)  // attached Text to the div element
+
+    document.body.appendChild(div) // attached div element to body of the document, this displays text"Hello" in the browser
+
+</script>
+
+</html>
