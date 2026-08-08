@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // Creating new ul elemet using script tag
+//   const ul = document.createElement('ul')   
+//   console.log(ul);
+//   const li = document.createElement('li')
+//   li.textContent = 'CSS'
+//   ul.appendChild(li)
+
+//   document.body.appendChild(ul)
+
+
+//adding new li element using function
+function AddLang(lang) {
+    const li = document.createElement('li')
+    li.innerHTML = `${lang}` 
+    document.querySelector('.language').appendChild(li)
+}
+AddLang('CSS')
+AddLang('Python')
+
+//adding new li element using optimized better approach
+function AddOptiLang(lang){
+    const li = document.createElement('li')
+    // let NewText = document.createTextNode(lang) //Works the same way as line number 39
+    // li.appendChild('NewText')
+    li.appendChild(document.createTextNode(lang))
+    document.querySelector('.language').appendChild(li)
+}
+AddOptiLang('JAVA')
+AddOptiLang('HTML')
+
+//Editing an existing LI or replacing with new li
+const second = document.querySelector('li:nth-child(2)') //li → look for <li> elements
+                                                         // :nth-child(2) → only if that <li> is the 2nd child of its parent
+// second.innerHTML = 'Jquery'
+const newli = document.createElement('li')
+newli.textContent = 'JQuery'
+second.replaceWith(newli)
+
+//Editing first li element
+const first = document.querySelector('li:first-child')
+first.outerHTML = '<li>Lang</li>'
+
+//Remove
+const last = document.querySelector('li:last-child')
+last.remove()
+
+
+</script>
+</html>
