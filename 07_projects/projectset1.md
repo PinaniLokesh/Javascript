@@ -85,3 +85,23 @@ form.addEventListener('submit', function (e) {
 });
 
 ```
+
+## Project 3
+
+```JavaScript
+const clock = document.getElementById('clock')
+// const clock = document.querySelector('#clock')
+
+const arr = ['green', 'blue', 'red', 'black']
+
+
+setInterval(function() {
+  let date = new Date()
+// console.log(date.toLocaleTimeString())
+
+clock.innerHTML = date.toLocaleTimeString()
+clock.style.backgroundColor = arr[Math.floor(Math.random() * arr.length)] 
+}, 1000)
+
+
+```
