@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+
+   <script>
+    // document.getElementById('owl').onclick = function() { //less feasible approach
+    //     alert("Owl clicked")
+    // }
+    
+    //--------------Bubbling events
+    
+    // document.getElementById('images').addEventListener('click', function(e) { 
+    //    console.log('Clicked inside ul');                             
+       
+    // }, false)       //False works like inside to outside
+    // // therefore above 2 consoles output will be if owl image is clicked "clicked on owl" will be printed first then "clicked inside ul"     This is called Bubbling event
+
+    //   document.getElementById('owl').addEventListener('click', function(e) { 
+    //    console.log('clicked on owl');                             
+       
+    // }, false)
+    
+    
+    //  document.getElementById('images').addEventListener('click', function(e) { 
+    //    console.log('Clicked inside ul');                             
+       
+    // }, true)   // If we type true then the propogation approach changes from outside to inside
+    // // therefore above 2 consoles output will be if owl image is clicked "clicked inside ul" will be printed first then "clicked on owl" 
+
+    //   document.getElementById('owl').addEventListener('click', function(e) { 
+    //    console.log('clicked on owl');                             
+       
+    // }, true)
+
+    //     document.getElementById('images').addEventListener('click', function(e) { 
+    //    console.log('Clicked inside ul');                             
+       
+    // }, false)     
+
+    //   document.getElementById('owl').addEventListener('click', function(e) { 
+    //    console.log('clicked on owl');                             
+    //    e.stopPropagation()   //This stops propogation or bubbling event and now only clicked on owl will printed and not clicked inside ul
+    // }, false)
+ 
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     console.log('Google link clicked');
+    //     e.preventDefault(); // Prevent default stops from performing the necessary action. like in this case event was to go to google.com when link was clicked. but now once link is clicked we have stopped it from routing to google.com.
+    //     e.stopPropagation()
+    // }, false)
+
+    //---------------------------removing li element for each image once we click on it inside ul element
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log(e.target);   // displays target element eg. if we click on image gives img tag
+    //     console.log(e.target.parentNode);   // displays parent of the clicked element
+    //     let removeIt = e.target.parentNode // selected parent eleent
+    //     removeIt.remove()        // removes parent element
+    //     // removeIt.parentNode.removeChild(removeIt)  // New m,ethod and confusing but works the same way as above
+    // }, false)
+
+    //above approach is good but if we click on any li element by mistake or genuinly then whole ul element gets deleted which should not happed
+    // therefore we will be using if statement below
+
+     document.getElementById('images').addEventListener('click', function(e){
+        console.log(e.target);  
+        console.log(e.target.parentNode); 
+        
+        if (e.target.tagName === 'IMG') { // here we are only removing element whose tagname is IMG
+            console.log(e.target.id);
+        let removeIt = e.target.parentNode 
+        removeIt.remove()   
+        }   
+    }, false)
+   </script>
+    
+</body>
+</html>
