@@ -23,12 +23,12 @@
 const sayDate = () => {
     console.log("Hi", Date.now());
   }
-  
+  let setHi
   document.querySelector('#start').addEventListener('click', () => {
-    const setHi = setInterval(sayDate, 1000);
+    setHi = setInterval(sayDate, 1000);
   })
 
-   document.querySelector('#start').addEventListener('click', () => {
+   document.querySelector('#stop').addEventListener('click', () => {
     clearInterval(setHi)
   })
 
