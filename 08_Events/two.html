@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white; ">
+    <h1 style="color: white;">Hello</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(() => {
+    //     console.log("Lokesh");
+        
+    // }, 2000);
+
+    const SayName = function(){   
+        console.log("Lokesh");
+
+    }
+    setTimeout(SayName, 2000) // works same way as above
+
+    // document.querySelector('h1').innerHTML = "Hi Lokesh" //update text in H1 tag from Hello to Hi Lokesh
+
+     const ChangeH1 = function(){
+        document.querySelector('h1').innerHTML = "Hi Lokesh"
+     }
+
+    //  setTimeout(ChangeH1, 2000)  // Updates text in h1 tag after 2 seconds once page is reloaded everytime
+ 
+    const ChangeMe = setTimeout(ChangeH1, 2000)
+    // clearTimeout(ChangeMe) // Stops h1 tag from updating the text
+
+    document.querySelector('#stop').addEventListener('click', function() {    // We have stopped h1 tag from updating text when we click on Stop button
+        clearTimeout(ChangeMe)
+        console.log("Stopped");
+        
+    })
+</script>
+</html>
