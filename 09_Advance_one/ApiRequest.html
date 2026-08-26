@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id='body' style="background-color: black; color: white;">
+0	UNSENT	Client has been created. open() not called yet. <br>
+1	OPENED	open() has been called. <br>
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available. <br>
+3	LOADING	Downloading; responseText holds partial data. <br>
+4	DONE	The operation is complete. <br>
+<div id="card"></div>
+</body>
+<script>
+  const body = document.querySelector('body')
+    const button = document.createElement('button')
+    button.innerHTML = 'Submit'
+    body.appendChild(button)
+
+    button.addEventListener('click', (e) => {
+        e.preventDefault()
+    const requestURL = 'https://api.github.com/users/pinanilokesh'
+    const xhr = new XMLHttpRequest()
+        console.log(xhr.readyState);
+    xhr.open('Get', requestURL)
+        console.log(xhr.readyState);
+    // console.log('HERE');
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            // const data = this.response
+            const data = JSON.parse(this.response) // converts typeof data from string to object
+            console.log(typeof(data));
+            console.log(data.email);
+        const card = document.querySelector('#card')
+
+       card.innerHTML = `
+    <div class="profile-card">
+        <img src="${data.avatar_url}" alt="${data.login}" width="150">
+        <p>Followers: ${data.followers}</p>
+        <p>Following: ${data.following}</p>
+        <p>Public Repositories: ${data.public_repos}</p>
+    </div>`
+        // IMG = document.createElement('IMG')
+        // h2 = document.createElement('IMG')
+        // IMG.innerHTML = data.avatar_url
+        // card.appendChild(IMG)
+        }
+    }
+    xhr.send()
+    })
+    
+
+    
+</script>
+
+</html>
