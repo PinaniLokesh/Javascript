@@ -1,0 +1,26 @@
+class user {
+    constructor(email, password) {
+        this.email = email;
+        this.password = password
+    }
+
+    get email(){
+        return this._email.toUpperCase()
+    }
+    set email(value){
+        this._email = value
+    }
+
+    get password(){
+        return `${this._password}lokesh`
+    }
+    set password(value){
+        this._password = value
+    }
+}
+
+const Lokesh = new user("l@lokesh.ai", "abc")
+console.log(Lokesh.password)
+console.log(Lokesh.email)
+
+
